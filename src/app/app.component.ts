@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
 
-
 import '../style/app.scss';
 
 @Component({
-  selector: 'my-app', // <my-app></my-app>
-  templateUrl: require('./app.component.html'),
-  styleUrls: [require('./app.component.scss')],
+    selector: 'my-app',
+    templateUrl: './app.component.html'
 })
-export class AppComponent {
-  url = 'https://github.com/preboot/angular2-webpack';
-  title: string;
 
-  constructor() {
-    this.title = "this is demo";
-  }
+export class AppComponent {
+    url = 'https://www.google.com';
+    title: string;
+
+    constructor() {
+        this.title = 'Nexus API';
+    }
 }
