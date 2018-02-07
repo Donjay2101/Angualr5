@@ -2,9 +2,8 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('Extract-text-webpack-plugin');
 const webpack = require("webpack");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 const ENV = process.env.npm_lifecycle_event;
@@ -47,7 +46,7 @@ module.exports = {
             
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader: 'file-loader?name=font/[name].[hash].[ext]?'
+                loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
             },
             {
                 test: /\.json$/, 
@@ -118,14 +117,12 @@ module.exports = {
             sourceMap: true, 
             mangle: { keep_fnames: true }
         }),
-        new CopyWebpackPlugin([{
-            from: root('src/public')
-        }])
   
     ],
     devServer:{
         contentBase: root('dist'),
-        compress: true
+        compress: true,               
+        stats:"errors-only"
     }
 
 };

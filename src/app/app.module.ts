@@ -5,18 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
-import { MaterialModule } from './material.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
         FormsModule,
-        routing,
-        BrowserAnimationsModule,
-        MaterialModule
+        routing
     ],
     declarations: [
         AppComponent, HomeComponent
