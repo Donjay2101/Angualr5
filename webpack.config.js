@@ -4,14 +4,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('Extract-text-webpack-plugin');
 const webpack = require("webpack");
-
+const bootstrap = require('./webpack.bootstrap.config.js');
 
 const ENV = process.env.npm_lifecycle_event;
 const isTestWatch = ENV === 'test-watch';
 const isTest = ENV === 'test' || isTestWatch;
 const isProd = ENV === 'build';
 
-
+let bootstrapConfig = isProd ? bootstrap.prod : bootstrap.dev
 
 let devtool = "";
 
@@ -35,6 +35,7 @@ module.exports = {
         main: "./src/main.ts",
         vendor: "./src/vendor.ts",
         polyfills: "./src/polyfills.ts",  
+        bootstrap: bootstrapConfig
     },
     output: {
         path: root('dist'), 
@@ -85,7 +86,8 @@ module.exports = {
                 test: /\.html$/, 
                 loader: 'raw-loader',  
                 exclude: root('src', 'public')
-            },         
+            }, 
+                    
         ]
     },
     plugins: [
@@ -117,7 +119,11 @@ module.exports = {
             sourceMap: true, 
             mangle: { keep_fnames: true }
         }),
-  
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+        })
     ],
     devServer:{
         contentBase: root('dist'),
