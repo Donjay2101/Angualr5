@@ -2,9 +2,10 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('Extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require("webpack");
 const bootstrap = require('./webpack.bootstrap.config.js');
+const copywebpackPlugin = require('copy-webpack-plugin');
 
 const ENV = process.env.npm_lifecycle_event;
 const isTestWatch = ENV === 'test-watch';
@@ -119,6 +120,9 @@ module.exports = {
             sourceMap: true, 
             mangle: { keep_fnames: true }
         }),
+        new copywebpackPlugin([{
+            from: root('./src/public/')
+        }]),
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",

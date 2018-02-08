@@ -1,3 +1,7 @@
 $(document).ready(function(){
-   // alert('hello');
+    $("#menu-toggle").click(function(e) {
+        debugger;
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
 })

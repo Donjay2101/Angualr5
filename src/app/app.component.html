@@ -1,12 +1,66 @@
 <header>
-    <nav>
-        <a [routerLink]="['']">Home</a>
+    <nav class="navbar navbar-default sticky-top navbar_custom">
+        <div class="container-fluid ">
+            <div class="navbar-right">
+                <img src='./img/dell_alt.png' class="header_logo_right" alt="logo" />
+            </div>
+        </div>
+        <!-- /.container-fluid -->
     </nav>
 </header>
 <main>
-    <h1>Hello from [{{title}}]</h1>
-    <button class="btn btn-primary">Test button</button>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        <img src="./img/nexus.png" class="img_app_logo" alt="app_logo" />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Simple Sidebar</h1>
+                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and
+                    will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear.
+                    On small screens, the page content will be pushed off canvas.</p>
+                <p>Make sure to keep all page content within the
+                    <code>#page-content-wrapper</code>.</p>
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
 </main>
-<footer>
-    <a [href] = "url">google.com</a>
+<footer class='footer'>
+    <div class="nav navbar" style="text-align:right!important">
+        <p>&copy; Dell-solution selling </p>
+    </div>
 </footer>
